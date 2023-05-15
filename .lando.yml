@@ -1,0 +1,32 @@
+name: wp-merak
+recipe: wordpress
+config:
+  php: '7.4'
+  composer_version: '2.5.5'
+  via: apache
+  webroot: wordpress
+  database: mysql
+  xdebug: true
+
+proxy:
+  appserver:
+    - wp-merak.lndo.site
+  phpmyadmin:
+    - phpmyadmin.wp-merak.lndo.site
+
+services:
+
+  appserver:
+    composer_version: 2
+    xdebug: debug
+    config:
+      php: ./.vscode/php.ini
+    run: 
+      - 'composer install'
+      - 'cd wordpress && wp config create --dbname=wordpress --dbuser=wordpress --dbpass=wordpress --dbhost=database --dbprefix=wp_ && wp core install --url=http://wp-merak.lndo.site --title=wp-merak --admin_user=admin --admin_password=admin --admin_email=aleja533@gmail.com'
+
+
+  phpmyadmin:
+    type: phpmyadmin
+    hosts:
+      - database
