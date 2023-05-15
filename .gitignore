@@ -36,3 +36,4 @@ wordpress/license.txt
 /wordpress/wp-admin/
 /wordpress/wp-includes/
 wp-*.php 
+wordpress/composer.json
