@@ -28,3 +28,11 @@ wordpress/wp-config.php
 
 # Ignore WordPress's file directory
 wordpress/wp-content/uploads/
+wordpress/index.php
+wordpress/xmlrpc.php
+wordpress/readme.html
+wordpress/license.txt
+/wordpress/wp-content/
+/wordpress/wp-admin/
+/wordpress/wp-includes/
+wp-*.php 
